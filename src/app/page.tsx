@@ -1,10 +1,9 @@
-// src/app/page.tsx (server component wrapper)
-export const dynamic = "force-static";     // ok to keep here
-export const revalidate = 60;              // optional
+// server component wrapper (no client-only code here)
+export const dynamic = "force-static";
+export const revalidate = 60;
 
-import NextDynamic from "next/dynamic";    // <-- renamed
+import NextDynamic from "next/dynamic";   // <-- NOT "dynamic"
 
-// load the heavy UI entirely on the client
 const HomeApp = NextDynamic(() => import("./_home-app"), {
   ssr: false,
   loading: () => (
