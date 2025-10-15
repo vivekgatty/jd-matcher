@@ -24,3 +24,15 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
+/* --- Studio theme (avoid <body> inline styles) --- */
+.studio-body {
+  margin: 0;
+  background: #0b0f19;
+  color: #e5e7eb;
+  font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto,
+    Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+}
+
+/* Optional: link color inside the studio shell */
+.studio-body a { color: #93c5fd; text-decoration: none; }
+.studio-body a:hover { text-decoration: underline; }
