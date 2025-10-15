@@ -1,6 +1,7 @@
 // src/app/layout.tsx
-export const dynamic = "force-dynamic";
-export const revalidate = 0;
+export const dynamic = "force-static";
+export const revalidate = false;
+export const fetchCache = 'force-cache';
 import type { Metadata } from "next";
 import Script from "next/script";
 import * as React from "react";
@@ -9,6 +10,7 @@ import "./globals.css";
 /** --- Site-wide SEO metadata (kept minimal & type-safe) --- */
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.jdmatcher.com"),
+  alternates: { canonical: "/" },
   title: {
     default: "JD Matcher – Tailor Your Resume to Any Job (ATS-friendly)",
     template: "%s | JD Matcher",
