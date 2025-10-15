@@ -1,20 +1,18 @@
 // src/app/page.tsx
-export const dynamic = "force-static";
+export const dynamic = "force-dynamic";
 
 import { headers } from "next/headers";
 import { Suspense } from "react";
-import HomeApp from "./_home-app"; // <-- client component ('use client' inside _home-app)
-
+import HomeApp from "./_home-app"; // client component ('use client' inside)
 const BOT_UA = /(googlebot|bingbot|baiduspider|yandexbot|duckduckbot|slurp)/i;
 
-// super-light server component for bots (NO window/document/transformers)
 function BotShell() {
   return (
     <main style={{ padding: 24, maxWidth: 900, margin: "0 auto" }}>
       <h1>Resume ↔ JD Matcher</h1>
       <p>
-        ATS-friendly resume optimizer that matches your resume to job descriptions, plus bullets,
-        concise summary, cover letter and more — runs fully in your browser.
+        ATS-friendly resume optimizer that matches your resume to job descriptions and
+        generates bullets, a concise summary, and a cover letter — runs fully in your browser.
       </p>
       <nav style={{ display: "flex", gap: 8, flexWrap: "wrap", marginTop: 8 }}>
         <a href="/studio">Studio →</a>
@@ -28,8 +26,10 @@ function BotShell() {
 }
 
 export default async function Page() {
-  const hdrs = await headers();
-  const ua = hdrs.get("user-agent") || "";
+  // Handle both typings: some setups expose headers() as sync, others as Promise
+  const hdrsMaybe = headers() as any;
+  const hdrs = typeof hdrsMaybe?.then === "function" ? await hdrsMaybe : hdrsMaybe;
+  const ua = hdrs?.get?.("user-agent") ?? "";
   const isBot = BOT_UA.test(ua);
 
   return (
