@@ -3,7 +3,8 @@ export const dynamic = "force-dynamic";
 
 import { headers } from "next/headers";
 import { Suspense } from "react";
-import HomeApp from "./_home-app"; // client component ('use client' inside)
+import HomeApp from "./_home-app"; // 'use client' inside
+
 const BOT_UA = /(googlebot|bingbot|baiduspider|yandexbot|duckduckbot|slurp)/i;
 
 function BotShell() {
@@ -26,10 +27,9 @@ function BotShell() {
 }
 
 export default async function Page() {
-  // Handle both typings: some setups expose headers() as sync, others as Promise
-  const hdrsMaybe = headers() as any;
-  const hdrs = typeof hdrsMaybe?.then === "function" ? await hdrsMaybe : hdrsMaybe;
-  const ua = hdrs?.get?.("user-agent") ?? "";
+  const maybe = headers() as any;
+  const h = typeof maybe?.then === "function" ? await maybe : maybe;
+  const ua = h?.get?.("user-agent") ?? "";
   const isBot = BOT_UA.test(ua);
 
   return (

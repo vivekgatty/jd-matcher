@@ -1,7 +1,5 @@
 // src/app/layout.tsx
-export const dynamic = "force-dynamic";
-export const revalidate = 0;
-export const fetchCache = 'force-cache';
+
 import type { Metadata } from "next";
 import Script from "next/script";
 import * as React from "react";
