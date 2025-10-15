@@ -1,7 +1,7 @@
 "use client";
 
 export const dynamic = "force-static"; // always serve a static HTML shell (no bot SSR)
-
+export const revalidate = 60;
 import Link from "next/link";
 import React, { useEffect, useMemo, useState } from "react";
 
