@@ -1,6 +1,5 @@
 // src/app/share/page.tsx
-export const dynamic = "force-dynamic";
-export const revalidate = 0; // explicit: no caching at build time
+
 import React from "react";
 
 // Optional: good default SEO for the public scorecard page
