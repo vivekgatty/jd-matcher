@@ -81,7 +81,8 @@ export default function TemplatesPage() {
       <div style={{ display:"flex", gap:8 }}>
         <button
           onClick={()=>{
-            const blob = new Blob([JSON.stringify(tpls, null, 2)], { type:"application/json" });
+            const json = JSON.stringify(tpls); // one argument only → SSR-safe
+            const blob = new Blob([json], { type: "application/json" });
             const url = URL.createObjectURL(blob);
             const a = document.createElement("a"); a.href=url; a.download="templates.json"; a.click();
             URL.revokeObjectURL(url);

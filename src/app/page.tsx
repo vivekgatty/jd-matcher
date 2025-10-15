@@ -1604,30 +1604,40 @@ export default function Page() {
     </p>
   </details>
 </section>
-
-{/* ─────────────────────────────────────────────────────────────
-    STRUCTURED DATA (JSON-LD) — SoftwareApplication + FAQPage
-    Use a plain <script> to avoid client-component issues.
-────────────────────────────────────────────────────────────── */}
-<script
-  type="application/ld+json"
-  dangerouslySetInnerHTML={{
-    __html: JSON.stringify({
-      '@context': 'https://schema.org',
-      '@graph': [
-        {
-          '@type': 'SoftwareApplication',
-          name: 'Resume ↔ JD Matcher',
-          applicationCategory: 'BusinessApplication',
-          operatingSystem: 'Web',
-          offers: {
-            '@type': 'Offer',
-            price: '199.00',
-            priceCurrency: 'INR',
-          },
-          description:
-            'ATS-friendly resume to job description matcher. Get a match score, missing keywords, bullet rewrites, JD-specific summary and cover letter. Private — runs in your browser.',
+{/* ───────────────────────────────────────────────────────────── */}
+{/* STRUCTURED DATA (JSON-LD) — SoftwareApplication + FAQPage     */}
+{/* Use a plain <script> to avoid client-component issues.        */}
+{/* ───────────────────────────────────────────────────────────── */}
+{(() => {
+  const schema = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "SoftwareApplication",
+        name: "Resume ↔ JD Matcher",
+        applicationCategory: "BusinessApplication",
+        operatingSystem: "Web",
+        offers: {
+          "@type": "Offer",
+          price: "199.00",
+          priceCurrency: "INR",
         },
+        description:
+          "Tailor your resume to any job description, generate cover letters, interview packs & more — all privately in your browser.",
+        url: "https://www.jdmatcher.com/",
+      },
+    ],
+  };
+
+  const schemaJson = JSON.stringify(schema); // ← ONE ARG ONLY
+
+  return (
+    <script
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{ __html: schemaJson }}
+    />
+  );
+})()}
         {
           '@type': 'FAQPage',
           mainEntity: [
