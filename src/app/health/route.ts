@@ -1,4 +1,5 @@
-import { NextResponse } from "next/server";
-export async function GET() {
-  return new NextResponse("ok", { status: 200 });
+// src/app/health/route.ts
+export const dynamic = "force-static";
+export function GET() {
+  return new Response("ok", { headers: { "content-type": "text/plain" } });
 }

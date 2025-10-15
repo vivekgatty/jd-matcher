@@ -1,3 +1,4 @@
+// src/app/bot/route.ts
 export const dynamic = "force-static";
 
 export async function GET() {

@@ -1,8 +1,8 @@
 // src/app/page.tsx
-export const dynamic = "force-dynamic"; // <-- IMPORTANT: allows headers()
+export const dynamic = "force-dynamic"; // must be dynamic to use headers()
 
 import { headers } from "next/headers";
-import HomeApp from "./_home-app"; // this file has "use client" at top
+import HomeApp from "./_home-app"; // _home-app.tsx has "use client" at the top
 
 const BOT_UA = /(googlebot|bingbot|baiduspider|yandexbot|duckduckbot|slurp)/i;
 
@@ -13,10 +13,10 @@ function BotShell() {
       <ul>
         <li>Match score + missing keywords tailored to the exact JD</li>
         <li>Auto-rewrites for weak bullets (action verb + metric + impact)</li>
-        <li>JD-specific 75-word summary and ready-to-send cover letter</li>
+        <li>JD-specific 75-word summary and cover letter</li>
         <li>Private by design — everything runs in your browser</li>
       </ul>
-      <p>If you’re human, use the interactive app at <a href="https://www.jdmatcher.com/">jdmatcher.com</a>.</p>
+      <p>Humans get the full app at <a href="https://www.jdmatcher.com/">jdmatcher.com</a>.</p>
     </main>
   );
 }
