@@ -1,12 +1,10 @@
 // next.config.js
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  eslint: { ignoreDuringBuilds: true },
+    reactStrictMode: true,
+    eslint: { ignoreDuringBuilds: true },
 
-  // Correct location in Next 15
-  outputFileTracingRoot: __dirname,
-
-  // Prevent pdfjs from pulling native 'canvas' in prod
+  // keep pdfjs in browser-only mode; avoid native `canvas`
   webpack: (config) => {
     config.resolve = config.resolve || {};
     config.resolve.alias = {
