@@ -1,19 +1,17 @@
 // src/app/page.tsx (server component wrapper)
 export const dynamic = "force-static";
 
-import dynamic from "next/dynamic";
+import type { Metadata } from "next";
+import dynamic from "next/dynamic";  // ⬅️ rename, not `dynamic`
 
-// load the heavy UI entirely on the client
-const HomeApp = dynamic(() => import("./_home-app"), {
-  ssr: false,
-  loading: () => (
-    <main style={{ padding: 24 }}>
-      <h1>Loading…</h1>
-    </main>
-  ),
-});
+const HomeApp = nextdynamic(() => import("./_home-app"), { ssr: false });
+
+export const metadata: Metadata = {
+  title: "Resume ↔ JD Matcher",
+  description:
+    "ATS-friendly, JD-specific resume tailoring. Private by design — everything runs in your browser."
+};
 
 export default function Page() {
-  // just render the client app
   return <HomeApp />;
 }
