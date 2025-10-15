@@ -1,5 +1,4 @@
 "use client";
-"use client";
 
 export const dynamic = "force-static"; // always serve a static HTML shell (no bot SSR)
 
