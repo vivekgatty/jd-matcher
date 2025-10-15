@@ -12,7 +12,7 @@ export async function POST() {
     });
 
     const order = await instance.orders.create({
-      amount: 100, // paise → ₹1
+      amount: 19900, // paise → ₹199
       currency: "INR",
       receipt: `jd-${Date.now()}`,
     });
