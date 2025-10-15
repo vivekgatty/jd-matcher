@@ -1,7 +1,5 @@
 "use client";
 
-export const dynamic = "force-static"; // always serve a static HTML shell (no bot SSR)
-export const revalidate = 60;
 import Link from "next/link";
 import React, { useEffect, useMemo, useState } from "react";
 
@@ -384,7 +382,7 @@ const NAV_ITEMS: Array<{ key: TabKey; label: string }> = [
 /* =========================================================
    Component
    ========================================================= */
-export default function Page() {
+export default function HomeApp() {
   // Prefill so users can click Analyze immediately
   const [jd, setJd] = useState(
     "We’re hiring a Digital Marketing Manager (3+ yrs). Responsibilities: Google Ads, Facebook Ads, SEO, content marketing, GA4 analytics, landing page optimization, A/B testing, CRM (HubSpot), email campaigns, leads reporting. Nice to have: Python basics for data, Excel."
