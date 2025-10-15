@@ -1657,51 +1657,156 @@ export default function Page() {
 }`
   }}
 />
+ {/* ─────────────────────────────────────────────────────────────
+    LONG-FORM SEO CONTENT (visible but lightweight)
+    Place this just above </main>
+────────────────────────────────────────────────────────────── */}
+<section
+  id="resume-jd-matcher-seo"
+  aria-label="Resume to Job Description (JD) Matcher — details and FAQs"
+  style={{
+    marginTop: 28,
+    padding: 16,
+    border: "1px solid #1f2937",
+    borderRadius: 12,
+    background: "rgba(2,6,23,0.35)",
+    lineHeight: 1.6,
+  }}
+>
+  <h2 style={{ fontSize: 20, margin: "0 0 10px 0" }}>
+    Resume ↔ JD Matcher — Tailor your resume to any job (ATS-friendly)
+  </h2>
+
+  <p style={{ opacity: 0.9 }}>
+    Paste a job description and your resume to instantly get a match score, missing
+    keywords, improvement ideas, and ready-to-paste highlights. Everything runs in
+    your browser (no uploads), so it’s private by design and ATS-friendly from the start.
+  </p>
+
+  <h3 style={{ marginTop: 16 }}>How it works</h3>
+  <ol style={{ paddingLeft: 18 }}>
+    <li>Paste a <strong>Job Description</strong> and your <strong>Resume</strong> (or upload PDF/DOCX/TXT).</li>
+    <li>Get a <strong>Match Score</strong>, find <strong>missing keywords</strong>, and see a category breakdown.</li>
+    <li>Generate <strong>improved bullets</strong>, a <strong>JD-specific summary</strong>, and a <strong>cover letter</strong>.</li>
+    <li>Export your plan, copy fixes, or tailor &amp; export for each job in one click.</li>
+  </ol>
+
+  <h3 style={{ marginTop: 16 }}>Why candidates use this</h3>
+  <ul style={{ paddingLeft: 18 }}>
+    <li><strong>ATS-friendly</strong> output (clear headings, keyword coverage, tangible impact).</li>
+    <li><strong>Privacy</strong>: runs locally in your browser; your documents never leave your device.</li>
+    <li><strong>Job-specific</strong> suggestions (not generic resume tips).</li>
+    <li><strong>Fast iteration</strong> for multiple applications with Tailor &amp; Export.</li>
+  </ul>
+
+  <h3 style={{ marginTop: 16 }}>Supported formats &amp; exports</h3>
+  <p style={{ opacity: 0.9 }}>
+    Import <strong>PDF</strong>, <strong>DOCX</strong>, or <strong>TXT</strong>. Export <strong>TXT</strong> or <strong>PDF</strong> reports.
+  </p>
+
+  <h3 style={{ marginTop: 16 }}>Pricing</h3>
+  <p style={{ opacity: 0.9 }}>
+    Free preview to check your match. Unlock pro actions (auto-rewrites, concise summary,
+    cover letter, ATS lint, LinkedIn pack, tailored export) for a small one-time fee.
+  </p>
+
+  <h3 style={{ marginTop: 16 }}>Use cases &amp; keywords</h3>
+  <p style={{ opacity: 0.9 }}>
+    Resume to job description match, CV keyword optimizer, ATS resume checker, resume keyword
+    coverage, JD-based resume tailoring, resume bullet generator, cover letter generator,
+    LinkedIn headline/About optimizer.
+  </p>
+
+  <h3 style={{ marginTop: 16 }}>FAQs</h3>
+
+  <details style={{ margin: "8px 0" }}>
+    <summary><strong>Is my data safe?</strong></summary>
+    <p style={{ marginTop: 6, opacity: 0.9 }}>
+      Yes. All analysis runs in your browser using a small on-device model. Your files are
+      not uploaded to any server.
+    </p>
+  </details>
+
+  <details style={{ margin: "8px 0" }}>
+    <summary><strong>Will this make my resume ATS-friendly?</strong></summary>
+    <p style={{ marginTop: 6, opacity: 0.9 }}>
+      It flags layout issues (tables, images, fancy bullets, mixed dates) and suggests concise,
+      metric-first bullets that parse cleanly in most applicant tracking systems.
+    </p>
+  </details>
+
+  <details style={{ margin: "8px 0" }}>
+    <summary><strong>How is the match score calculated?</strong></summary>
+    <p style={{ marginTop: 6, opacity: 0.9 }}>
+      We embed both documents and compute semantic similarity, plus a category coverage check
+      for channels, skills, analytics and tools.
+    </p>
+  </details>
+
+  <details style={{ margin: "8px 0" }}>
+    <summary><strong>Can I tailor for multiple jobs quickly?</strong></summary>
+    <p style={{ marginTop: 6, opacity: 0.9 }}>
+      Yes — use Tailor &amp; Export to inject JD keywords into your headline and bullets, then export
+      a tailored version for each role.
+    </p>
+  </details>
+</section>
+
+{/* Single, valid JSON-LD block (keep only this one) */}
+<script
+  type="application/ld+json"
+  suppressHydrationWarning
+  dangerouslySetInnerHTML={{
+    __html: `{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "SoftwareApplication",
+      "name": "Resume ↔ JD Matcher",
+      "applicationCategory": "BusinessApplication",
+      "operatingSystem": "Web",
+      "offers": {
+        "@type": "Offer",
+        "price": "199.00",
+        "priceCurrency": "INR"
+      },
+      "description": "ATS-friendly resume optimizer that matches your resume to job descriptions, generates tailored cover letters, interview Q&As, and outreach messages — all in-browser with no data leaving your device.",
+      "url": "https://www.jdmatcher.com"
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
         {
-          '@type': 'FAQPage',
-          mainEntity: [
-            {
-              '@type': 'Question',
-              name: 'Is my data safe?',
-              acceptedAnswer: {
-                '@type': 'Answer',
-                text:
-                  'Yes. All analysis runs in your browser using a small on-device model. Your files are not uploaded to any server.',
-              },
-            },
-            {
-              '@type': 'Question',
-              name: 'Will this make my resume ATS-friendly?',
-              acceptedAnswer: {
-                '@type': 'Answer',
-                text:
-                  'It flags layout issues and suggests concise, metric-first bullets that parse cleanly in most applicant tracking systems.',
-              },
-            },
-            {
-              '@type': 'Question',
-              name: 'How is the match score calculated?',
-              acceptedAnswer: {
-                '@type': 'Answer',
-                text:
-                  'We embed both documents and compute semantic similarity, plus a category coverage check for channels, skills, analytics and tools.',
-              },
-            },
-            {
-              '@type': 'Question',
-              name: 'Can I tailor for multiple jobs quickly?',
-              acceptedAnswer: {
-                '@type': 'Answer',
-                text:
-                  'Yes — use Tailor & Export to inject JD keywords into your headline and bullets, then export a tailored version for each role.',
-              },
-            },
-          ],
+          "@type": "Question",
+          "name": "Does my data leave my device?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. The tool runs entirely in your browser. Files are processed locally."
+          }
         },
-      ],
-    }),
+        {
+          "@type": "Question",
+          "name": "Can I export tailored resumes and cover letters?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. You can export DOCX/PDF and generate multiple company-specific variants."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How much does it cost?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Core features are free to try; advanced exports and packs are available at a nominal fee (₹100–₹500)."
+          }
+        }
+      ]
+    }
+  ]
+}`
   }}
 />
-    </main>
+
+</main>
   );
 }
