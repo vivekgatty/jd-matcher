@@ -1604,40 +1604,59 @@ export default function Page() {
     </p>
   </details>
 </section>
-{/* ───────────────────────────────────────────────────────────── */}
-{/* STRUCTURED DATA (JSON-LD) — SoftwareApplication + FAQPage     */}
-{/* Use a plain <script> to avoid client-component issues.        */}
-{/* ───────────────────────────────────────────────────────────── */}
-{(() => {
-  const schema = {
-    "@context": "https://schema.org",
-    "@graph": [
-      {
-        "@type": "SoftwareApplication",
-        name: "Resume ↔ JD Matcher",
-        applicationCategory: "BusinessApplication",
-        operatingSystem: "Web",
-        offers: {
-          "@type": "Offer",
-          price: "199.00",
-          priceCurrency: "INR",
-        },
-        description:
-          "Tailor your resume to any job description, generate cover letters, interview packs & more — all privately in your browser.",
-        url: "https://www.jdmatcher.com/",
+<script
+  type="application/ld+json"
+  suppressHydrationWarning
+  dangerouslySetInnerHTML={{
+    __html: `{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "SoftwareApplication",
+      "name": "Resume ↔ JD Matcher",
+      "applicationCategory": "BusinessApplication",
+      "operatingSystem": "Web",
+      "offers": {
+        "@type": "Offer",
+        "price": "199.00",
+        "priceCurrency": "INR"
       },
-    ],
-  };
-
-  const schemaJson = JSON.stringify(schema); // ← ONE ARG ONLY
-
-  return (
-    <script
-      type="application/ld+json"
-      dangerouslySetInnerHTML={{ __html: schemaJson }}
-    />
-  );
-})()}
+      "description": "ATS-friendly resume optimizer that matches your resume to job descriptions, generates tailored cover letters, interview Q&As, and outreach messages — all in-browser with no data leaving your device.",
+      "url": "https://www.jdmatcher.com"
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Does my data leave my device?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. The tool runs entirely in your browser. Files are processed locally."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I export tailored resumes and cover letters?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. You can export DOCX/PDF and generate multiple company-specific variants."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How much does it cost?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Core features are free to try; advanced exports and packs are available at a nominal fee (₹100–₹500)."
+          }
+        }
+      ]
+    }
+  ]
+}`
+  }}
+/>
         {
           '@type': 'FAQPage',
           mainEntity: [
