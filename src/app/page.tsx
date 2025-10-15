@@ -1,17 +1,8 @@
-// server component wrapper (no client-only code here)
+// server component wrapper (static HTML shell only)
 export const dynamic = "force-static";
 export const revalidate = 60;
 
-import NextDynamic from "next/dynamic";   // <-- NOT "dynamic"
-
-const HomeApp = NextDynamic(() => import("./_home-app"), {
-  ssr: false,
-  loading: () => (
-    <main style={{ padding: 24 }}>
-      <h1>Loading…</h1>
-    </main>
-  ),
-});
+import HomeApp from "./_home-app"; // <-- import the client component directly
 
 export default function Page() {
   return <HomeApp />;
